@@ -6,6 +6,7 @@ import com.geektech.databaselesson.data.beer.BeerService;
 import com.geektech.databaselesson.data.beer.BeerSourceContract;
 import com.geektech.databaselesson.data.db.DatabaseContract;
 import com.geektech.databaselesson.data.db.DatabaseLessonDb;
+import com.geektech.databaselesson.base.scheduler.SchedulerProvider;
 
 // Created by askar on 10/16/18.
 public class SourceProvider {
@@ -16,7 +17,8 @@ public class SourceProvider {
 
     public static BeerSourceContract getBeerSource(Context context){
         return BeerService.getInstance(
-                getDatabase(context).getBeerDao()
+                getDatabase(context).getBeerDao(),
+                SchedulerProvider.getSingleThreadScheduler()
         );
     }
 

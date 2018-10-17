@@ -120,6 +120,7 @@ public class BeerLocalDataSource extends SQLiteOpenHelper
 
     @Override
     public void addAll(Beer... beers) {
+        //Да, я говорил что так лучше не делать ;)
         for (Beer beer:beers){
             add(beer);
         }
