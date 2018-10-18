@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sqlDb = new BeerLocalDataSource(getApplicationContext());
+        sqlDb = BeerLocalDataSource.getInstance(getApplicationContext());
         roomDb = SourceProvider.getBeerSource(getApplicationContext());
 
         checkSQLite();

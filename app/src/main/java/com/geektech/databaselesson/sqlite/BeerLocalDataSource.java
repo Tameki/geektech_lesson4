@@ -24,6 +24,19 @@ public class BeerLocalDataSource extends SQLiteOpenHelper
                 DB_VERSION);
     }
 
+    //region Static
+
+    private static BeerLocalDataSource INSTANCE;
+
+    public static BeerDataSource getInstance(Context context) {
+        if (INSTANCE == null){
+            INSTANCE = new BeerLocalDataSource(context);
+        }
+        return INSTANCE;
+    }
+
+    //endregion
+
     //region Lifecycle
 
     @Override
